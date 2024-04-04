@@ -1,0 +1,41 @@
+/* assets/stylesheets/contact_me.css */
+
+.notice {
+    color: green;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contact_form {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#contact_form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#contact_form input[type="text"],
+#contact_form input[type="email"],
+#contact_form textarea,
+#contact_form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#contact_form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+#contact_form input[type="submit"] {
+    cursor: pointer;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+}

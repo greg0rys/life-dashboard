@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag 'contact_me' %>
+
+<p class="notice"><%= notice %></p>
+
+<h1>Contact me</h1>
+
+<div id="contact_form">
+  <%= form_with model: ContactMe.new, url: contact_mes_url do |form| %>
+
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+
+    <%= form.label :email %>
+    <%= form.email_field :email, required: true %>
+
+    <%= form.label :phone %>
+    <%= form.text_field :phone, required:true %>
+
+    <%= form.label :description %>
+    <%= form.text_area :description, required: true %>
+
+    <%= form.submit "Send" %>
+
+  <% end %>
+</div>
+
+
+

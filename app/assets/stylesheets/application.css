@@ -22,7 +22,18 @@
     box-sizing: border-box;
 
 }
+
 body {
-    background: #2E0854;
+
+    background: #2a0152;
     color: #FFD700;
+    height: 100%;
+    width: calc(100% - 240px); /* account for the left margin */
+    margin-left: 240px;
+    padding: 10px;
+}
+
+a
+{
+    color: #E6E6FA;
 }

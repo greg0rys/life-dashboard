@@ -1,10 +1,44 @@
+<%= stylesheet_link_tag 'users_show' %>
+
 <p style="color: green"><%= notice %></p>
 
-<%= render @user %>
+<section>
+  <div class="user-info">
+    <p>User: <%= @user.name %></p>
+    <p>Username: <%= @user.username %></p>
+    <p><%= @user.admin ? "Role: Admin" : "Role: Standard" %></p>
+    <div class="actions">
+      <%= button_to "Edit this user", edit_user_path(@user) %>
+      <%= button_to "Back to users", users_path %>
+      <%= button_to "Destroy this user", @user, method: :delete %>
+    </div>
+  </div>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
+  <div class="user-details">
+    <div>
+      <p>Users Accounts: <%= @user.accounts.size %></p>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
-</div>
+      <select name="accounts" class="same-width">
+        <% @user.accounts.each do |account| %>
+          <% acct_num = account.accountnum %>
+          <option value=<%= acct_num %>> <%= acct_num %> </option>
+        <% end %>
+      </select>
+    </div>
+
+    <div>
+
+      <p>Users Bills: <%= count_bills @user %></p>
+      <select name="bills" class="same-width">
+        <% @user.accounts.each do |account| %>
+          <% t_bills = account.bills.size %>
+          <% account.bills.each do | bill | %>
+            <% amount = format_number bill.amount %>
+            <% name = bill.name %>
+            <option value=<%= name %>> <%= name %>: $<%= amount %></option>
+          <% end %>
+        <% end %>
+      </select>
+    </div>
+  </div>
+</section>

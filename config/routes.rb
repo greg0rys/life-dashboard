@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :contact_mes
+  resources :inventories
   resources :books
   resources :bills
   resources :transactions
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  #contact me
+  get '/contact', to: 'contact_mes#index', as: 'contact'
   # set the homepage using root
   root 'homes#index'
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

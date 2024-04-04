@@ -1,77 +1,40 @@
-<head>
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-
-  * {
-    box-sizing: border-box;
-    font-family: "Raleway", monospace;
-  }
-
-  header {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-  }
-
-  main {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    align-item: space-between;
-    gap: 1rem;
-  }
-
-  main > div {
-    width: 100%;
-    text-align: center;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  nav {
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-items: space-evenly;
-    text-align: center;
-  }
-</style>
-</head>
+<% stylesheet_link_tag 'homes' %>
 
 <body>
 
-<%= render 'shared/navbar' %>
   <header>
-    <h1> Admin Dashboard </h1>
+    <h1> Dashboard </h1>
   </header>
 
   <main>
-    <nav>
-    <div>
-  <%= link_to "See All Users", users_path %>
+
+    <div id="user-info">
+      <h4>User Stats</h4>
+      <p>
+        Total Users Enrolled: <%= @users&.size || "No Users In Table.." %>
+      </p>
+      <p><%= link_to "Manage Users", users_path %></p>
     </div>
 
-    <div>
-      <%= link_to "See All Accounts", accounts_path %>
+    <div id="bills-info">
+      <h4>Bills Info</h4>
+      <p>
+        Total Bills: <%= @bills&.size || "No Bills" %>
+      </p>
+      <p>
+        <%= link_to "Manage Bills", bills_path %>
+      </p>
     </div>
 
-    <div>
-      <%= link_to "See All Transactions", transactions_path %>
+    <div id="books-info">
+      <h4>Books Stats</h4>
+      <p>
+        Total Books: <%= @books&.size || "No Books" %>
+      </p>
+      <p>
+        <%= link_to "Manage Books", books_path %>
+      </p>
     </div>
-
-    <div>
-    <%= link_to "See All Bills", bills_path %>
-    </div>
-
-    <div>
-    <%= link_to "See All Books", books_path %>
-    </div>
-    </nav>
 
   </main>
 

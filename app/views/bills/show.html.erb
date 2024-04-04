@@ -1,10 +1,56 @@
+<head>
+  <style>
+    .bill-info
+    {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        border: 2px solid palevioletred;
+        padding: 10px;
+
+    }
+
+    .bill-info > p
+    {
+        margin: 4px;
+        padding: 1px;
+    }
+
+    .nav {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        border: 2px solid whitesmoke;
+        padding: 5px;
+        width: 50%;
+        margin: auto;
+    }
+  </style>
+</head>
+
 <p style="color: green"><%= notice %></p>
 
-<%= render @bill %>
 
-<div>
-  <%= link_to "Edit this bill", edit_bill_path(@bill) %> |
-  <%= link_to "Back to bills", bills_path %>
+<div class="bill-info">
 
-  <%= button_to "Destroy this bill", @bill, method: :delete %>
+  <div class="nav">
+    <%= link_to "Edit this bill", edit_bill_path(@bill) %> |
+    <%= link_to "Back to bills", bills_path %> |
+
+    <%= button_to "Destroy this bill", @bill, method: :delete %>
+  </div>
+
+  <p>
+    Bill Name: <%= @bill.name %></p>
+  <p>
+    Bill Amount $<%= format_number @bill.amount %>
+  </p>
+
+  <p>
+    Paid By: <%= @bill.user&.name || "None" %>
+  </p>
 </div>
+
+
