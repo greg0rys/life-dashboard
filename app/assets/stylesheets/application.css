@@ -17,8 +17,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
-* { font-family: "Raleway", monospace; }
+* {
+    font-family: "Raleway", monospace;
+    box-sizing: border-box;
+
+}
 body {
-    background: #001f3f;
-    color: #FFF8C6;
+    background: #2E0854;
+    color: #FFD700;
 }

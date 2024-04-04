@@ -1,0 +1,16 @@
+/* Styling for the table */
+table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+/* Styling for table rows */
+table tr {
+    text-align: center; /* Center align text */
+}
+
+/* Styling for table cells */
+td, th {
+    padding: 8px; /* Padding for cells */
+    border: 1px solid #ddd; /* Border for cells */
+}

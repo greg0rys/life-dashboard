@@ -1,0 +1,91 @@
+/* app/assets/stylesheets/custom.css */
+
+/* Import Raleway font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: "Raleway", monospace;
+}
+
+table{
+    width: 100%;
+    font-family: "Raleway", monospace;
+    border-collapse: collapse;
+}
+th,td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Remove list decoration */
+ul, ol {
+    list-style: none;
+}
+
+/* Remove anchor underline */
+a {
+    text-decoration: none;
+}
+
+
+.container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 0;
+}
+
+.container > div {
+    width: 100%;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Full height */
+}
+
+.grid-item {
+    display: flex; /* Use flexbox */
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: center;
+    width: 100%; /* Full width */
+    margin-right: 20px; /* Adjust for the grid gap */
+    color: #D3D3D3;
+    border: 2px solid #FFF8C6;
+}
+
+.grid-item:last-child {
+    margin-right: 0; /* Remove margin for the last item in each row */
+}
+
+
+
+.grid-item-content {
+    padding: 20px;
+}
+
+.user-options {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
