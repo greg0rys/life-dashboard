@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_04_015044) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_04_025711) do
   create_table "accounts", force: :cascade do |t|
     t.integer "accountnum"
     t.string "accounttype"
@@ -28,6 +28,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_04_015044) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "account_id"
+    t.index ["account_id"], name: "index_bills_on_account_id"
     t.index ["user_id"], name: "index_bills_on_user_id"
   end
 
@@ -63,5 +65,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_04_015044) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "bills", "accounts"
   add_foreign_key "bills", "users"
 end

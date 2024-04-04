@@ -1,45 +1,47 @@
 <head>
   <style>
-    .bills {
-      display: flex;
-      flex-flow: row wrap;
-      margin: 1rem;
-      padding: 2px;
-      justify-content: space-evenly;
-      align-items: space-evenly;
-      width: 100%;
-      text-align: center;
-    }
+    /* Styling for the table */
+   table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse borders */
+  }
 
-    #bills > p {
-      width: 100%;
-      text-align: center;
-    }
-  </style>
-  </head>
+/* Styling for table rows */
+table tr {
+  text-align: center; /* Center align text */
+}
+
+/* Styling for table cells */
+td, th {
+  padding: 8px; /* Padding for cells */
+  border: 1px solid #ddd; /* Border for cells */
+}
+</style>
+</head>
 <p style="color: green"><%= notice %></p>
 
 <%= render 'shared/navbar' %>
 
 <h1>Bills</h1>
 
-<div class="bills">
-  <p>Bill Name </p>
-  <p> Bill Amount </p>
-  <p>Paid By </p>
-  <p> Manage Bill </p>
-</div>
-<% @bills.each do |bill| %>
 
-  <div class="bills">
-    <p>  <%= bill.name %></p>
-    <p>  <%= number_with_precision(bill.amount, precision: 2) %>
-    <p>  <%= bill.user&.name %> </p>
-    <p>
-      <%= link_to "Show this bill", bill %>
-    </p>
-  </div>
-<% end %>
-
-
-<%= link_to "New bill", new_bill_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th> Paid By </th>
+      <th> Paid With: </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= link_to bill&.name, bill  || "No Name" %></td>
+        <td>$<%= number_with_precision(bill&.amount, precision: 2) || "No Amount" %></td>
+        <td> <%= bill.user&.name || "Not Assigned" %> </td>
+        <td> <%= bill.account&.accountnum || "No Account" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
