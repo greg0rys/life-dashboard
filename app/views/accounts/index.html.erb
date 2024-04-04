@@ -1,0 +1,53 @@
+<head>
+  <style>
+    /* Styling for the table */
+   table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse borders */
+  }
+
+/* Styling for table rows */
+table tr {
+  text-align: center; /* Center align text */
+}
+
+/* Styling for table cells */
+td, th {
+  padding: 8px; /* Padding for cells */
+  border: 1px solid #ddd; /* Border for cells */
+}
+</style>
+</head>
+<%= render 'shared/navbar' %>
+
+<p style="color: green"><%= notice %></p>
+<h1>Account List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Account Number</th>
+      <th> Account Type </th>
+      <th> Account Balance </th>
+      <th> Bank Name </th>
+      <th> View Account </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.user&.name || "No User" %></td>
+        <td><%= account.accountnum|| "No User" %></td>
+        <td><%= account.accounttype || "No User" %></td>
+        <td><%= account.accountbalance || "No User" %></td>
+        <td><%= account.bankname|| "No User" %></td>
+        <td><%= link_to "Show this account", account %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to "New account", new_account_path %>
+<%= link_to "Home", homes_path %>

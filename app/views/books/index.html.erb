@@ -1,0 +1,27 @@
+<%= render 'shared/navbar' %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Books</h1>
+
+<div id="books">
+  <% @books.each do |book| %>
+  <% if book.finished? %>
+    <p> Title: <%= book.title %> </p>
+    <% if book.finished?%>
+    <p> Completed: <%= book.finishdate.strftime("%m-%d-%Y")%> </p>
+    <p> Rate: <%= book.rate %> </p>
+
+    <% else %>
+    <p> Book In Progress </p>
+    
+    <% end %>
+    <p>
+      <%= link_to "Show this book", book %>
+    </p>
+    <%end%>
+  <% end %>
+</div>
+
+<%= link_to "New book", new_book_path %>
+<%= link_to "Home", homes_path %>

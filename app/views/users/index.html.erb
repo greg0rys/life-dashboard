@@ -1,0 +1,149 @@
+
+<head>
+<style>
+/* app/assets/stylesheets/custom.css */
+
+/* Import Raleway font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+*{
+  box-sizing: border-box;
+  font-family: "Raleway", monospace;
+}
+
+table{
+  width: 100%;
+  font-family: "Raleway", monospace;
+  border-collapse: collapse;
+}
+th,td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Remove list decoration */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove anchor underline */
+a {
+  text-decoration: none;
+}
+
+
+.container{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 0;
+}
+
+.container > div {
+  width: 100%;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+}
+
+; #user {
+;   display:flex;
+;   flex-flow: row wrap;
+;   justify-content: center;
+;   align-items: center;
+;   border: 2px solid pink;
+;   width: 100%;
+;   height: 100%;
+;   gap: 1rem;
+;  }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  grid-gap: 20px; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; /* Full height */
+}
+
+.grid-item {
+  display: flex; /* Use flexbox */
+  flex-direction: row wrap; 
+  justify-content: start; 
+  align-items: center; 
+  width: 100%; /* Full width */
+  margin-right: 20px; /* Adjust for the grid gap */
+  color: #D3D3D3;
+  border: 2px solid #FFF8C6;
+}
+
+.grid-item:last-child {
+  margin-right: 0; /* Remove margin for the last item in each row */
+}
+
+
+
+.grid-item-content {
+  padding: 20px;
+}
+
+.user-options {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+
+}
+
+
+
+</style>
+</head>
+<%= render 'shared/navbar' %>
+
+<p style="color: green"><%= notice %></p>
+
+<div class="header">
+  <p> Users enrolled: <%= @users.size %> </p>
+</div>
+
+<div>
+
+<div class="user-options">
+<h4> User Actions: </h4>
+  <p> <%= link_to "Add New User", new_user_path %> </p>
+</div>
+
+<div class="grid-container">
+
+  <% @users.each do |user| %>
+
+  <div class="grid-item"">
+  <div class="grid-item-content"></div>
+    <div id="user">
+    <%= render user %>
+    <p>
+      <%= link_to "Show this user", user %>
+    </p>
+    </div>
+  </div>
+  <% end %>
+
+  </div>
+
+</div>
+
+
+<div class="add_link">
+  <%= link_to "New user", new_user_path %>
+</div>
+
+

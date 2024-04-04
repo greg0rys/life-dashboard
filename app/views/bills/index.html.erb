@@ -1,0 +1,45 @@
+<head>
+  <style>
+    .bills {
+      display: flex;
+      flex-flow: row wrap;
+      margin: 1rem;
+      padding: 2px;
+      justify-content: space-evenly;
+      align-items: space-evenly;
+      width: 100%;
+      text-align: center;
+    }
+
+    #bills > p {
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+  </head>
+<p style="color: green"><%= notice %></p>
+
+<%= render 'shared/navbar' %>
+
+<h1>Bills</h1>
+
+<div class="bills">
+  <p>Bill Name </p>
+  <p> Bill Amount </p>
+  <p>Paid By </p>
+  <p> Manage Bill </p>
+</div>
+<% @bills.each do |bill| %>
+
+  <div class="bills">
+    <p>  <%= bill.name %></p>
+    <p>  <%= number_with_precision(bill.amount, precision: 2) %>
+    <p>  <%= bill.user&.name %> </p>
+    <p>
+      <%= link_to "Show this bill", bill %>
+    </p>
+  </div>
+<% end %>
+
+
+<%= link_to "New bill", new_bill_path %>
